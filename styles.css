@@ -1,0 +1,71 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f7ff; /* Light blue background color */
+    color: #213F99; /* Dark text color */
+    margin: 20px;
+}
+
+h2 {
+    color: #102871; /* Dark blue heading color */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #213F99; /* Dark blue label color */
+}
+
+input, select, button {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 15px;
+    background-color: #fb8d18; /* Light orange button color */
+    color: #fff; /* White text color */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f67f00; /* Darker blue on hover */
+}
+
+#instructionsContainer {
+    background-color: #d9e6f7; /* Light blue background */
+    border: 1px solid #0066cc; /* Dark blue border */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#citationContainer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d9e6f7; /* Light blue container background */
+    border: 1px solid #0066cc; /* Dark blue border */
+    border-radius: 5px;
+}
+
+#citationContainer p {
+    margin: 10px;
+}
+
+#citationContainer h3 {
+    color: #213F99; /* Dark blue heading color */
+}
+
+#citationContainer b {
+    color: #ba0a0a;
+}
+
+#bookFields, #imageFields, #censusFields {
+    display: none; /* Hide fields by default */
+}
+
+#bookFields p {
+    font-style: italic;
+    margin: 5px 0;
+}
