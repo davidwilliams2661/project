@@ -24,8 +24,4 @@
     4- Add a page of helpful links.
 
 Removed code form index.html
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            showFields();
-        });
-    </script>
+    

@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function() {
+    showFields();
+});
+
 function showFields() {
     var record_type = document.getElementById("record_type").value;
 
@@ -15,6 +19,8 @@ function showFields() {
         document.getElementById("censusFields").style.display = "block";
     }
 }
+
+document.getElementById("generateButton").addEventListener("click", generateCitation);
 
 function generateCitation() {
     var record_type = document.getElementById("record_type").value;
