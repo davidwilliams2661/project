@@ -1,7 +1,7 @@
-# GENEAOLOGY CITATION GENERATOR
+# GENEALOGY CITATION GENERATOR
 #### Video Demo:  <URL HERE>
 #### Description:
-    This project is a genealogical citation maker. It is designed to be a static Chrome Extention with which users can quickly create citations from genealogical source materials. Even though there are plenty of citation makers currently available on the web, this one is specifically for a genealogical citation format that is not found on Easybib et. al...
+    This project is a genealogical citation maker. It is designed to be a static Chrome Extention with which users can quickly create citations from genealogical source materials. Even though there are plenty of citation makers currently available on the web, this one is specifically for a genealogical citation formats that are not found on Easybib et. al...
 
     The HTML page is composed of several <div> elements, including a drop down menu, some usage instructions, a long list of inputs, a 'Generate Citaiton' button, and finlly the citations themselves. The inputs are changed via the drop down menu. When the user selects a different source material, it sends the id of that option to a JavaScript function called "showFields". This changes the display value of the relevant div (bookFields, imageFields, etc) from 'none' to 'block'.
 
