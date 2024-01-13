@@ -22,6 +22,4 @@
     2- Some kind of history page to store user's previous sessions.
     3- More helpful tips for how to cite each source type.
     4- Add a page of helpful links.
-
-Removed code form index.html
     
