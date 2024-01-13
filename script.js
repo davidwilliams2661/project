@@ -31,29 +31,39 @@ function generateCitation() {
     var blankline = "--";
 
     if (record_type === "book") {
+        var church = document.getElementById("church").value
+        var location = document.getElementById("location").value
+        var title = document.getElementById("title").value
+        var page = document.getElementById("page").value
+        var itemNum = document.getElementById("itemNum").value
+        var itemName = document.getElementById("itemName").value
+        var itemOrd = document.getElementById("itemOrd").value
+        var year = document.getElementById("year").value
+        var repository = document.getElementById("repository").value
+        var repLocation = document.getElementById("repLocation").value
         citation = "Full Reference Note (First Note): " +
-            document.getElementById("church").value + " (" +
-            document.getElementById("location").value + "), \"" + 
-            document.getElementById("title").value + "\" p. " + 
-            document.getElementById("page").value + ", no. " + 
-            document.getElementById("itemNum").value + ", " + 
-            document.getElementById("itemName").value + " " + 
-            document.getElementById("itemOrd").value + " (" + 
-            document.getElementById("year").value + "); " + 
-            document.getElementById("repository").value + ", " + 
-            document.getElementById("repLocation").value + ".";
+            church + " (" +
+            location + "), \"" + 
+            title + "\" p. " + 
+            page + ", no. " + 
+            itemNum + ", " + 
+            itemName + " " + 
+            itemOrd + " (" + 
+            year + "); " + 
+            repository + ", " + 
+            repLocation + ".";
         citation_short = "Subsequent (Short Note): " + 
-            document.getElementById("church").value + " (" +
-            document.getElementById("location").value + "), \"" + 
-            document.getElementById("title").value + "\" p. " + 
-            document.getElementById("page").value + ", no. " + 
-            document.getElementById("itemNum").value + ".";
+            church + " (" +
+            location + "), \"" + 
+            title + "\" p. " + 
+            page + ", no. " + 
+            itemNum + ".";
         citation_source = "Source List Entry: " +
-            document.getElementById("church").value + " (" +
-            document.getElementById("location").value + "). \"" + 
-            document.getElementById("title").value + ".\" " + 
-            document.getElementById("repository").value + ", " + 
-            document.getElementById("repLocation").value + ".";
+            church + " (" +
+            location + "). \"" + 
+            title + ".\" " + 
+            repository + ", " + 
+            repLocation + ".";
         // Add more book-specific fields to the citation as needed
     } else if (record_type === "image") {
         citation = "Full Reference Note (First Note): " +
