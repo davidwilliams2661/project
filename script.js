@@ -22,6 +22,26 @@ function showFields() {
 
 document.getElementById("generateButton").addEventListener("click", generateCitation);
 
+function dateFormat(date) {
+    // change input date to DD Month YYY
+    if (date) {
+        // pass input into Date object
+        const inputDate = new Date(date)
+
+        // format each part of the date into searate variables
+        const day = inputDate.getDate();
+        const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(inputDate);
+        const year = inputDate.getFullYear();
+
+        // combine three seperate variables into one string
+        const formattedDate = `${day} ${month} ${year}`;
+        return formattedDate;
+    }
+    else {
+        return date;
+    }
+}
+
 function generateCitation() {
     var record_type = document.getElementById("record_type").value;
     var citationContainer = document.getElementById("citationContainer");
@@ -31,17 +51,17 @@ function generateCitation() {
     var blankline = "--";
 
     if (record_type === "book") {
-        var church = document.getElementById("church").value
-        var location = document.getElementById("location").value
-        var title = document.getElementById("title").value
-        var page = document.getElementById("page").value
-        var itemNum = document.getElementById("itemNum").value
-        var itemName = document.getElementById("itemName").value
-        var itemOrd = document.getElementById("itemOrd").value
-        var year = document.getElementById("year").value
-        var repository = document.getElementById("repository").value
-        var repLocation = document.getElementById("repLocation").value
-        citation = "Full Reference Note (First Note): " +
+        var church = document.getElementById("church").value;
+        var location = document.getElementById("location").value;
+        var title = document.getElementById("title").value;
+        var page = document.getElementById("page").value;
+        var itemNum = document.getElementById("itemNum").value;
+        var itemName = document.getElementById("itemName").value;
+        var itemOrd = document.getElementById("itemOrd").value;
+        var year = document.getElementById("year").value;
+        var repository = document.getElementById("repository").value;
+        var repLocation = document.getElementById("repLocation").value;
+        citation = "First (Full) Reference Note Note: 1. " +
             church + " (" +
             location + "), \"" + 
             title + "\" p. " + 
@@ -52,7 +72,7 @@ function generateCitation() {
             year + "); " + 
             repository + ", " + 
             repLocation + ".";
-        citation_short = "Subsequent (Short Note): " + 
+        citation_short = "Subsequent (Short) Note: 11. " + 
             church + " (" +
             location + "), \"" + 
             title + "\" p. " + 
@@ -66,32 +86,42 @@ function generateCitation() {
             repLocation + ".";
         // Add more book-specific fields to the citation as needed
     } else if (record_type === "image") {
-        citation = "Full Reference Note (First Note): " +
-            document.getElementById("imageAuthor").value + " (" +
-            document.getElementById("imageLocation").value + "), \"" + 
-            document.getElementById("imageLabel").value + "\" p. " + 
-            document.getElementById("imagePage").value + ", " + 
-            document.getElementById("imageItem").value + ", " + 
-            document.getElementById("imageDate").value + "; " + 
-            document.getElementById("imageFormat").value + ", " + 
-            document.getElementById("imageWeb").value + " (" + 
-            document.getElementById("imageUrl").value + ") :accessed" + 
-            document.getElementById("imageAccess").value + ".";
-        citation_short = "Subsequent (Short Note): " + 
-            document.getElementById("imageAuthor").value + " (" +
-            document.getElementById("imageLocation").value + "), \"" + 
-            document.getElementById("imageLabel").value + "\" p. " + 
-            document.getElementById("imagePage").value + ", " + 
-            document.getElementById("imageItem").value + ", " + 
-            document.getElementById("imageDate").value + ".";
+        var imageAuthor = document.getElementById("imageAuthor").value;
+        var imageLocation = document.getElementById("imageLocation").value;
+        var imageLabel = document.getElementById("imageLabel").value;
+        var imagePage = document.getElementById("imagePage").value;
+        var imageItem = document.getElementById("imageItem").value;
+        var imageDate = dateFormat(document.getElementById("imageDate").value);
+        var imageFormat = document.getElementById("imageFormat").value;
+        var imageWeb = document.getElementById("imageWeb").value;
+        var imageUrl = document.getElementById("imageUrl").value;
+        var imageAccess = dateFormat(document.getElementById("imageAccess").value);
+        citation = "First (Full) Reference Note: 1. " +
+            imageAuthor + " (" +
+            imageLocation + "), \"" + 
+            imageLabel + "\" p. " + 
+            imagePage + ", " + 
+            imageItem + ", " + 
+            imageDate + "; " + 
+            imageFormat + ", " + 
+            imageWeb + " (" + 
+            imageUrl + ") : accessed " + 
+            imageAccess + ".";
+        citation_short = "Subsequent (Short) Note: 11. " + 
+            imageAuthor + " (" +
+            imageLocation + "), \"" + 
+            imageLabel + "\" p. " + 
+            imagePage + ", " + 
+            imageItem + ", " + 
+            imageDate + ".";
         citation_source = "Source List Entry: " +
-            document.getElementById("imageAuthor").value + " (" +
-            document.getElementById("imageLocation").value + "). " + 
-            document.getElementById("imageLabel").value + ". " + 
-            document.getElementById("imageFormat").value + ". " + 
-            document.getElementById("imageWeb").value + ". " + 
-            document.getElementById("imageUrl").value + " :" + 
-            document.getElementById("imageAccess").value + ".";
+            imageAuthor + " (" +
+            imageLocation + "). " + 
+            imageLabel + ". " + 
+            imageFormat + ". " + 
+            imageWeb + ". " + 
+            imageUrl + " : " + 
+            imageAccess + ".";
         // Add more image-specific fields to the citation as needed
     } else if (record_type === "census") {
         citation = "Census Citation: " +
@@ -100,7 +130,7 @@ function generateCitation() {
         // Add more census-specific fields to the citation as needed
     }
 
-    // Display or use the generated citation as needed
+    // Display the generated citation
     var citationParagraph = document.createElement("p");
     var citation_shortParagraph = document.createElement("p");
     var citation_sourceParagraph = document.createElement("p");
