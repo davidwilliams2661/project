@@ -12,16 +12,17 @@
         <h2>Citation Generator</h2>
         <label for="record_type">Record Type:</label>
     <select id="record_type" onchange="showFields()">
+        <!-- could add js or python logic here to dynamically gernerate this list -->
         <option value="book">Church Books</option>
         <option value="image">Image Copies</option>
-        <option value="census">US Federal Census</option>
+        <option value="census">US Federal Census: Digital Images</option>
     </select>
     </div>
     <div id="instructionsContainer">
         <p>All fields required for First Full Reference Note</p>
         <p>* required for Subsequent Short Note</p>
         <p>† required for Source List Entry</p>
-    </div>
+    </div> 
     <div id="bookFields">
         <!-- put usage instructions here regading specific source type -->
         <label for="church">Church (Author):</label>
@@ -53,11 +54,7 @@
 
         <label for="repLocation">†Repository Location:</label>
         <input type="text" id="repLocation" placeholder="Natchitoches">
-
-        <!-- Add more book-specific fields as needed -->
     </div>
-
-    <!-- Website Fields -->
     <div id="imageFields">
         <label for="imageAuthor">Image Copies:</label>
         <input type="text" id="imageAuthor" placeholder="St. Lawrence Church">
@@ -88,15 +85,43 @@
 
         <label for="imageAccess">†Access Date:</label>
         <input type="date" id="imageAccess">
-
-        <!-- Add more website-specific fields as needed -->
     </div>
-
-    <!-- Article Fields -->
     <div id="censusFields">
-        <h1>Coming Soon</h1>
+        <label for="censusId">Census ID:</label>
+        <input type="text" id="censusId" placeholder="1850 U.S. census">
 
-        <!-- Add more article-specific fields as needed -->
+        <label for="censusJurisdiction">Jurisdiction:</label>
+        <input type="text" id="censusJurisdiction" placeholder="Marion County, Iowa">
+
+        <label for="censusSchedule">Schedule:</label>
+        <input type="text" id="censusSchedule" placeholder="population schedule">
+
+        <label for="censusDivision">Civil Division:</label>
+        <input type="text" id="censusDivision" placeholder="Lake Prairie">
+
+        <label for="censusPage">Page ID:</label>
+        <input type="text" id="censusPage" placeholder="p. 290 (stamped)">
+
+        <label for="censusHousehold">Household ID:</label>
+        <input type="text" id="censusHousehold" placeholder="dwelling 151, family 156">
+
+        <label for="censusPerson">Person(s) of Interest:</label>
+        <input type="text" id="censusPerson" placeholder="Virgil W. and Wyatt B. Earp">
+
+        <label for="censusType">Item Type or Format:</label>
+        <input type="text" id="censusType" placeholder="image">
+
+        <label for="censusWebsite">Website Title:</label>
+        <input type="text" id="censusWebsite" placeholder="Ancestry.com">
+
+        <label for="censusUrl">URL (Digital Location):</label>
+        <input type="text" id="censusUrl" placeholder="http://www.ancestry.com)">
+
+        <label for="censusDate">Date:</label>
+        <input type="date" id="censusDate">
+
+        <label for="censusCredit">Credit Line (Source of This Source):</label>
+        <input type="text" id="censusCredit" placeholder="NARA microfilm publication M432, roll 187">
     </div>
 
     <button id="generateButton">Generate Citation</button>

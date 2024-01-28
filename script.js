@@ -42,6 +42,21 @@ function dateFormat(date) {
     }
 }
 
+function extractYear(date) {
+    if (date) {
+        // pass input into Date object
+        const inputDate = new Date(date)
+
+        // separate year
+        const year = inputDate.getFullYear();
+        const formattedYear = `${year}`;
+        return formattedYear;
+    }
+    else {
+        return date;
+    }
+}
+
 function generateCitation() {
     var record_type = document.getElementById("record_type").value;
     var citationContainer = document.getElementById("citationContainer");
@@ -84,7 +99,6 @@ function generateCitation() {
             title + ".\" " + 
             repository + ", " + 
             repLocation + ".";
-        // Add more book-specific fields to the citation as needed
     } else if (record_type === "image") {
         var imageAuthor = document.getElementById("imageAuthor").value;
         var imageLocation = document.getElementById("imageLocation").value;
@@ -122,12 +136,49 @@ function generateCitation() {
             imageWeb + ". " + 
             imageUrl + " : " + 
             imageAccess + ".";
-        // Add more image-specific fields to the citation as needed
     } else if (record_type === "census") {
-        citation = "Census Citation: " +
-            "Title: " + document.getElementById("censusTitle").value +
-            ", Journal: " + document.getElementById("journal").value;
-        // Add more census-specific fields to the citation as needed
+        var censusId = document.getElementById("censusId").value;
+        var censusJurisdiction = document.getElementById("censusJurisdiction").value;
+        var censusSchedule = document.getElementById("censusSchedule").value;
+        var censusDivision = document.getElementById("censusDivision").value;
+        var censusPage = document.getElementById("censusPage").value;
+        var censusHousehold = document.getElementById("censusHousehold").value;
+        var censusPerson = document.getElementById("censusPerson").value;
+        var censusType = document.getElementById("censusType").value;
+        var censusWebsite = document.getElementById("censusWebsite").value;
+        var censusUrl = document.getElementById("censusUrl").value;
+        var censusDate = dateFormat(document.getElementById("censusDate").value);
+        var censusYear = extractYear(document.getElementById("censusDate").value)
+        var censusCredit = document.getElementById("censusCredit").value;
+        citation = "First (Full) Reference Note: 1. " +
+            censusId + ", " +
+            censusJurisdiction + ", " +
+            censusSchedule + ", " +
+            censusDivision + ", " +
+            censusPage + ", " +
+            censusHousehold + ", " +
+            censusPerson + "; " +
+            censusType + ", " +
+            censusWebsite + " " +
+            "(" + censusUrl + " " +
+            ": accessed " + censusDate + "); "
+            censusCredit + ".";
+        citation_short = "Subsequent (Short) Note: 11. " + 
+            // needs to be abbreviated
+            censusId + ", " +
+            censusJurisdiction + ", " +
+            censusSchedule + ", " +
+            censusPage + ", " +
+            censusHousehold + ", " +
+            censusPerson + ".";
+        citation_source = "Source List Entry: " +
+            censusJurisdiction + ". " +
+            censusId + ", " +
+            censusSchedule + ". " +
+            censusType + ". " +
+            censusWebsite + ". " +
+            censusUrl + " " +
+            ": " + censusYear;
     }
 
     // Display the generated citation
