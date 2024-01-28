@@ -23,12 +23,12 @@ function showFields() {
 document.getElementById("generateButton").addEventListener("click", generateCitation);
 
 function dateFormat(date) {
-    // change input date to DD Month YYY
+    // change input date to DD Month YYYY
     if (date) {
         // pass input into Date object
         const inputDate = new Date(date)
 
-        // format each part of the date into searate variables
+        // format each part of the date into separate variables
         const day = inputDate.getDate();
         const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(inputDate);
         const year = inputDate.getFullYear();
