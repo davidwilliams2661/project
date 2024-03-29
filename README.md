@@ -1,25 +1,69 @@
 # GENEALOGY CITATION GENERATOR
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://youtu.be/bKXVos8Srt4>
 #### Description:
-    This project is a genealogical citation maker. It is designed to be a static Chrome Extension with which users can quickly create citations from genealogical source materials. Even though there are plenty of citation makers currently available on the web, this one is specifically for a genealogical citation formats that are not found on Easybib et. al...
+Overview:
+The Genealogy Citation Helper is a Chrome Extension designed to facilitate the creation of citations specifically for genealogical research. This tool addresses the need for a specialized citation generator that adheres to the unique formats required in genealogical documentation, distinguishing it from generic citation tools.
 
-    The HTML page is composed of several <div> elements, including a drop down menu, some usage instructions, a long list of inputs, a 'Generate Citation' button, and finally the citations themselves. The inputs are changed via the drop down menu. When the user selects a different source material, it sends the id of that option to a JavaScript function called "showFields". This changes the display value of the relevant div (bookFields, imageFields, etc) from 'none' to 'block'.
+Key Features:
+Source Type Selection: Users can select from various genealogical source types, such as church books, image copies, and census data, through a dropdown menu.
+Dynamic Input Fields: Based on the selected source type, relevant input fields are displayed, guiding users to input precise details for accurate citation generation.
 
-    The displayed options can be filled out by the user with whatever source they'd like to cite. All the inputs are then passed to a JS function called 'generateCitation', which does just that by concatenating the inputs together with all the tedious syntax required by the citation format. There are three different forms of citation that are all generated from the same function. Ultimately the product of this function is three different strings, all passed to a 'citationContainer' div via JS.
-    This gives the user a running list of all the citations they've made while on the webpage.
+Custom Citation Formats: 
+The tool generates three forms of citations: Full Reference Note, Subsequent Short Note, and Source List Entry, catering to different documentation needs in genealogical research.
 
-    The dateFormat function converts the given html input type "date" from
-    DD/MM/YYYY to DD Month YYYY. The html input is turned into a Date object,
-    then the day, month, and year are broken into separate variables so that the month can be converted to the written english form. The function returns a string of the three variable put in the correct order. If there is no date the function will return nothing to avoid type errors, allowing a citation to still be generated with an empty date field.
 
-    The CSS hides the input fields that aren't relevant to the current source type selected, spaces out all the appropriate elements, gives the page a color scheme, and highlights some important elements with color changes.
+TECHNICAL COMPONENTS
 
-    Future features to add:
-    1- JS logic to create a correct citation even if certain fields are missing
-        This is likely achieved with a conditional wrapping each value.
-        If value exists then include it and it's relevant punctuation, otherwise omit it entirely.
-    2- Some kind of history page to store user's previous sessions.
-    3- More helpful tips for how to cite each source type.
-    4- Add a page of helpful links.
-    5- More efficient way to add new source types.
+Manifest File (manifest.json)
+-Defines the extension's basic settings, such as version, name, and default popup, linking to the index.html file.
+Sets the icon for the extension as open-book.png.
+
+HTML Structure (index.html)
+-Contains the layout for the citation generator, including source type selection, input fields for different record types, and the citation display area.
+Integrates the script.js and styles.css files for functionality and styling.
+
+JavaScript Logic (script.js)
+-Handles the dynamic display of input fields based on the selected source type through the showFields() function.
+-Converts dates to the required format using the dateFormat() function, ensuring consistency in citation formatting.
+-Generates citations based on the inputted data, creating three different citation types for each source material.
+
+CSS Styling (styles.css)
+-Provides a visually appealing and user-friendly interface, with styles that highlight important elements and ensure a clean layout conducive to efficient data entry and citation review.
+
+
+WORKFLOW
+
+Initialization: 
+Upon loading, the DOMContentLoaded event triggers the showFields() function, setting up the appropriate fields for the default source type.
+
+Source Selection: 
+The user selects a source type from the dropdown menu, dynamically changing the input fields displayed via the showFields() function.
+Data Entry: The user inputs data into the fields relevant to the chosen source type.
+
+Citation Generation: 
+Clicking the 'Generate Citation' button activates the generateCitation() function, which constructs the citations based on the provided data and the selected source type.
+
+Citation Display: 
+Generated citations are displayed in the citationContainer div, offering users a compiled list of their citations for reference.
+Future Enhancements
+
+Field Validation: 
+Integrate advanced validation rules to ensure the accuracy and completeness of input data.
+
+
+FUTURE IMPROVEMENTS
+
+History Tracking: 
+Implement a feature to save and manage previous citation sessions, allowing users to retrieve and edit past citations.
+
+Expanded Source Types: 
+Extend the tool's capabilities by adding more source types and corresponding fields to accommodate a broader range of genealogical records.
+
+User Guide: 
+Develop a comprehensive guide or tooltips within the extension to assist users in correctly inputting data and understanding citation formats.
+
+
+CONCLUSION
+
+The Genealogy Citation Helper is an invaluable tool for genealogists and researchers, providing a tailored solution for the precise and systematic generation of genealogical citations. Its specialized functionality, coupled with planned future enhancements, positions it as a standout resource in the field of genealogical research.
     
