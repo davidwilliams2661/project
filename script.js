@@ -29,7 +29,7 @@ function dateFormat(date) {
         const inputDate = new Date(date)
 
         // format each part of the date into separate variables
-        const day = inputDate.getDate();
+        const day = (inputDate.getDate() + 1);
         const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(inputDate);
         const year = inputDate.getFullYear();
 
